@@ -38,8 +38,8 @@ export default function Airdrop() {
       } else {
         toast.error("Wallet not Conected");
       }
-    } catch (error) {
-      toast.error("Unable to Airdrop");
+    } catch (error: any) {
+      toast.error(error.message);
     }
   }
 
