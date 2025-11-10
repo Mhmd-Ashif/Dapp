@@ -2,7 +2,7 @@ import Landing from "./pages/Landing";
 import { NavbarDemo } from "./components/Navbar";
 import { ThemeProvider } from "./components/theme-provider";
 // wallet
-import  { useMemo } from "react";
+import { useMemo } from "react";
 import {
   ConnectionProvider,
   WalletProvider,
@@ -17,12 +17,11 @@ import "@solana/wallet-adapter-react-ui/styles.css";
 import { Send } from "./pages/Send";
 import Airdrop from "./pages/Airdrop";
 import { Token } from "./pages/Token";
+import { Nft } from "./pages/Nft";
 
 function App() {
-  // The network can be set to 'devnet', 'testnet', or 'mainnet-beta'.
   const network = WalletAdapterNetwork.Devnet;
 
-  // You can also provide a custom RPC endpoint.
   const endpoint = useMemo(() => clusterApiUrl(network), [network]);
 
   const wallets = useMemo(
@@ -56,6 +55,7 @@ function App() {
               <Send />
               <Airdrop />
               <Token />
+              <Nft />
             </ThemeProvider>
           </WalletModalProvider>
         </WalletProvider>
