@@ -1,10 +1,5 @@
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
-import {
-  Keypair,
-  LAMPORTS_PER_SOL,
-  SystemProgram,
-  Transaction,
-} from "@solana/web3.js";
+import { Keypair, SystemProgram, Transaction } from "@solana/web3.js";
 import {
   TOKEN_2022_PROGRAM_ID,
   createMintToInstruction,
@@ -21,7 +16,6 @@ import {
   getMint,
   getMetadataPointerState,
   getTokenMetadata,
-  createInitializePermanentDelegateInstruction,
 } from "@solana/spl-token";
 import {
   createInitializeInstruction,
@@ -230,6 +224,7 @@ export function Nft() {
       const [key, currentPoints] =
         findMetaData.additionalMetadata.find(([key, _]) => key == "Points") ??
         [];
+      console.log(key);
       let pointsAsNumber = parseInt(currentPoints ?? "0");
       pointsAsNumber += 10;
 
